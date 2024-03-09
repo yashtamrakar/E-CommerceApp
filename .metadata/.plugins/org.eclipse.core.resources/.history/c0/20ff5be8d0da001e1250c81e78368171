@@ -1,0 +1,49 @@
+package org.jsp.ecommerceapp.dao;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.jsp.ecommerceapp.model.Merchant;
+import org.jsp.ecommerceapp.repository.MerchantRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public class MerchantDao {
+	@Autowired
+	private MerchantRepository merchantRepository;
+	
+	public Merchant saveMerchant(Merchant merchant) {
+		return merchantRepository.save(merchant);
+	}
+
+	public Optional<Merchant> findById(int id) {
+		return merchantRepository.findById(id);
+	}
+
+	public boolean deleteByid(int id) {
+		Optional<Merchant> recMerchant = merchantRepository.findById(id);
+		if (recMerchant.isPresent()) {
+			merchantRepository.deleteById(id);
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	public List<Merchant> findAll() {
+		return merchantRepository.findAll();
+	}
+
+	public Optional<Merchant> verifyByPhonePassword(long phone, String password) {
+		return merchantRepository.verifyByPhonePasword(phone, password);
+	}
+
+	public Optional<Merchant> verifyByEmailPassword(String email, String password) {
+		return merchantRepository.verifyByEmailPassword(email, password);
+	}
+}
+
+}
+
+

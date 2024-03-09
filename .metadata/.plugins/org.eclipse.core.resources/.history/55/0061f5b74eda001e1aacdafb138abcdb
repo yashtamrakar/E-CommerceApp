@@ -1,0 +1,23 @@
+package org.jsp.ecommerceapp.service;
+
+import org.jsp.ecommerceapp.dao.MerchantDao;
+import org.jsp.ecommerceapp.dto.ResponseStructure;
+import org.jsp.ecommerceapp.model.Merchant;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+@Service
+public class MerchantService {
+	@Autowired
+	private MerchantDao merchantDao;
+	
+	
+	
+	
+
+	public ResponseStructure <Merchant> saveMerchant(Merchant merchant) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}
